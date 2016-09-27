@@ -35,7 +35,7 @@ export class AmazonLoginComponent implements AfterViewInit {
   private loginInit() {
     if (this.clientId == null)
       throw new Error(
-        'clientId property is necessary. (<amazon-login clientId="..."></amazon-login>)');
+        'clientId property is necessary. (<amazon-login [clientId]="..."></amazon-login>)');
 
     amazon.Login.setClientId(this.clientId);
   }

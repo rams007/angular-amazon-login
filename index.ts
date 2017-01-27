@@ -1,3 +1,5 @@
+/// <reference path="typings/index.d.ts" />
+
 import {Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
 
 export class AmazonAuthResponse {

@@ -1,6 +1,6 @@
 /// <reference path="typings/index.d.ts" />
 
-import {Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
+import { Component, AfterViewInit, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 
 export class AmazonAuthResponse {
   public authRequest: amazon.Login.AuthorizeRequest;
@@ -27,6 +27,8 @@ export class AmazonLoginComponent implements AfterViewInit {
 
   // Options
   @Input() private clientId: string;
+  @Input() private scope: string | string[] = "profile";
+  @Input() private responseType: "token" | "code" = "token";
 
   @Output() amazonAuthResponse: EventEmitter<AmazonAuthResponse> = new EventEmitter<AmazonAuthResponse>();
 
@@ -48,7 +50,8 @@ export class AmazonLoginComponent implements AfterViewInit {
 
   private onClick() {
     amazon.Login.authorize({
-      scope: 'profile'
+      scope: this.scope,
+      response_type: this.responseType,
     }, (response: amazon.Login.AuthorizeRequest) => this.handleResponse(response));
   }
 }

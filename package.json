@@ -27,11 +27,14 @@
   },
   "homepage": "https://github.com/miltador/angular-amazon-login#readme",
   "devDependencies": {
-    "typescript": "^2.0.0"
+    "typescript": "~3.2.2",
+    "@angular/core": "^8.0.3",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
   },
   "peerDependencies": {
-    "@angular/core": "^2.0.0",
-    "rxjs": "5.0.3",
-    "zone.js": "^0.7.2"
+    "@angular/core": "^8.0.3",
+    "rxjs": "~6.3.3",
+    "zone.js": "~0.8.26"
   }
 }

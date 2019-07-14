@@ -28,6 +28,8 @@ export class AmazonLoginComponent implements AfterViewInit {
   // Options
   @Input() private clientId: string;
   @Input() private scope: string | string[] = "profile";
+  @Input() private popup: boolean = true;
+  @Input() private redirectUrl: string = "";
   @Input() private responseType: "token" | "code" = "token";
 
   @Output() amazonAuthResponse: EventEmitter<AmazonAuthResponse> = new EventEmitter<AmazonAuthResponse>();
@@ -49,9 +51,11 @@ export class AmazonLoginComponent implements AfterViewInit {
   }
 
   private onClick() {
+    const next = this.popup ? (response: amazon.Login.AuthorizeRequest) => this.handleResponse(response) : this.redirectUrl;
     amazon.Login.authorize({
       scope: this.scope,
+      popup: this.popup,
       response_type: this.responseType,
-    }, (response: amazon.Login.AuthorizeRequest) => this.handleResponse(response));
+    }, next);
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "angular-amazon-login",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Login with Amazon component for Angular written in TypeScript",
   "main": "index.js",
   "typings": "index.d.ts",

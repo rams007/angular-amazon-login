@@ -14,7 +14,7 @@ export class AmazonAuthResponse {
   selector: 'amazon-login',
   template: `
     <a id="LoginWithAmazon" (click)="onClick()">
-    <img border="0" alt="Login with Amazon"
+    <img border="0" alt="Login with Amazon" 
       src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
       width="156" height="32" />
     </a>
@@ -51,7 +51,8 @@ export class AmazonLoginComponent implements AfterViewInit {
   }
 
   private onClick() {
-    const next = this.popup ? (response: amazon.Login.AuthorizeRequest) => this.handleResponse(response) : this.redirectUrl;
+   // const next = this.popup ? (response: amazon.Login.AuthorizeRequest) => this.handleResponse(response) : this.redirectUrl;
+   const next =this.redirectUrl;
     amazon.Login.authorize({
       scope: this.scope,
       popup: this.popup,
